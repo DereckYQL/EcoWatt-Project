@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoWatt | Calculadora</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div class="logo-container">
+        <img src="logo.png" alt="EcoWatt">
+        <div>
+            <h1>EcoWatt</h1>
+            <p>Controla y optimiza tu consumo energético</p>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <h2>Calculadora de Consumo Energético</h2>
+
+    <p>
+        
+        Ingresa tus electrodomésticos para conocer su consumo mensual
+        estimado y recibir recomendaciones para mejorar la eficiencia
+        energética de tu hogar.
+    </p>
+</section>
+
+<section class="formulario">
+
+    <h2>Agregar Electrodoméstico</h2>
+
+    <label>Electrodoméstico</label>
+    <input type="text" id="nombre" placeholder="Ej: Refrigerador">
+
+    <label>Potencia (Watts)</label>
+    <input type="number" id="potencia">
+
+    <label>Horas de uso al día</label>
+    <input type="number" id="horas">
+
+    <button onclick="agregarElectrodomestico()">
+        Agregar
+    </button>
+
+</section>
+
+<section class="tabla-container">
+
+    <h2>Consumo Registrado</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Electrodoméstico</th>
+                <th>Consumo Mensual (kWh)</th>
+            </tr>
+        </thead>
+
+        <tbody id="tablaDatos"></tbody>
+
+    </table>
+
+</section>
+
+<section class="grafico">
+
+    <h2>Análisis de Consumo</h2>
+
+    <canvas id="graficoConsumo"></canvas>
+
+    <h3 id="total"></h3>
+
+</section>
+
+<section class="recomendaciones">
+
+    <h2>Recomendaciones Inteligentes</h2>
+
+    <div id="recomendacion">
+        Agrega electrodomésticos para obtener sugerencias.
+    </div>
+
+</section>
+
+<footer>
+    <p>
+        EcoWatt © 2026 | Proyecto desarrollado por estudiantes del
+        Instituto Superior de Comercio de Valparaíso.
+    </p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

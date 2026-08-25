@@ -1,0 +1,390 @@
+/* ECO WATT - DISEÑO PROFESIONAL */
+
+:root{
+    --azul:#0b3b78;
+    --azul-claro:#135fc1;
+    --verde:#43a047;
+    --verde-claro:#66bb6a;
+    --gris:#f4f7fb;
+    --blanco:#ffffff;
+    --texto:#1f2937;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:var(--gris);
+    color:var(--texto);
+}
+
+/* HEADER */
+
+header{
+    background:linear-gradient(
+        90deg,
+        var(--azul),
+        var(--azul-claro)
+    );
+
+    color:white;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+header h1{
+    font-size:2.3rem;
+    margin-bottom:5px;
+}
+
+header p{
+    opacity:.9;
+}
+
+/* PÁGINA PRINCIPAL */
+
+.inicio{
+    background:
+    linear-gradient(
+        rgba(11,59,120,.75),
+        rgba(11,59,120,.85)
+    ),
+    url("fondo.png");
+
+    background-size:cover;
+    background-position:center;
+    min-height:100vh;
+}
+
+.overlay{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.contenedor-principal{
+    max-width:1100px;
+    width:100%;
+    text-align:center;
+    color:white;
+}
+
+.logo{
+    width:220px;
+    margin-bottom:20px;
+}
+
+.contenedor-principal h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.subtitulo{
+    font-size:1.3rem;
+    margin-bottom:30px;
+}
+
+.info-box{
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+    padding:40px;
+
+    text-align:left;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.info-box h2{
+    color:#8cff9f;
+    margin-bottom:10px;
+    margin-top:20px;
+}
+
+.info-box p{
+    line-height:1.8;
+}
+
+.btn-principal{
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:18px 45px;
+
+    background:linear-gradient(
+        90deg,
+        var(--verde),
+        var(--verde-claro)
+    );
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:15px;
+
+    font-weight:bold;
+
+    font-size:1.1rem;
+
+    transition:.3s;
+}
+
+.btn-principal:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(67,160,71,.4);
+}
+
+/* HERO CALCULADORA */
+
+.hero{
+    max-width:1200px;
+
+    margin:30px auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    border-left:8px solid var(--verde);
+}
+
+.hero h2{
+    color:var(--azul);
+    margin-bottom:10px;
+}
+
+.hero img{
+    width:180px;
+}
+
+/* TARJETAS */
+
+.formulario,
+.tabla-container,
+.grafico,
+.recomendaciones{
+
+    max-width:1200px;
+
+    margin:25px auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* TITULOS */
+
+.formulario h2,
+.tabla-container h2,
+.grafico h2,
+.recomendaciones h2{
+
+    color:var(--azul);
+
+    border-left:5px solid var(--verde);
+
+    padding-left:12px;
+
+    margin-bottom:20px;
+}
+
+/* FORMULARIO */
+
+.formulario label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+.formulario input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #dbe4ef;
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.formulario input:focus{
+
+    outline:none;
+
+    border-color:var(--verde);
+
+    box-shadow:0 0 0 4px rgba(67,160,71,.15);
+}
+
+.formulario button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        90deg,
+        var(--verde),
+        var(--verde-claro)
+    );
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.formulario button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(67,160,71,.35);
+}
+
+/* TABLA */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:var(--azul);
+    color:white;
+}
+
+th{
+    padding:15px;
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid #e8edf3;
+}
+
+tbody tr:nth-child(even){
+    background:#f7fafc;
+}
+
+tbody tr:hover{
+    background:#eef7ff;
+}
+
+/* GRAFICO */
+
+#graficoConsumo{
+    max-height:400px;
+}
+
+#total{
+    text-align:center;
+    color:var(--verde);
+    margin-top:20px;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+
+/* RECOMENDACIONES */
+
+#recomendacion{
+
+    background:#eef8f0;
+
+    border-left:6px solid var(--verde);
+
+    padding:18px;
+
+    border-radius:12px;
+
+    font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+
+    margin-top:40px;
+
+    background:linear-gradient(
+        90deg,
+        var(--azul),
+        #082d5c
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+    }
+
+    .hero img{
+        width:130px;
+    }
+
+    .contenedor-principal h1{
+        font-size:2.8rem;
+    }
+
+    .logo{
+        width:170px;
+    }
+
+    .formulario,
+    .tabla-container,
+    .grafico,
+    .recomendaciones,
+    .hero{
+        width:95%;
+    }
+}
