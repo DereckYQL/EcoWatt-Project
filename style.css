@@ -641,6 +641,14 @@ html[data-theme="dark"] .banda{
     font-weight:700;
 
     box-shadow:0 8px 20px rgba(11,59,120,.25);
+    overflow:hidden;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
 }
 
 .tarjeta-equipo h3{
