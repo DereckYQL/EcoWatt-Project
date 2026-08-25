@@ -1,4 +1,4 @@
-# EcoWatt 3.0
+# EcoWatt 3.1
 
 **Tecnología para un consumo energético más inteligente.**
 
@@ -30,6 +30,7 @@ Plataforma web desarrollada por estudiantes del Instituto Superior de Comercio d
 - Glosario técnico y preguntas frecuentes
 - Formulario de contacto y fuentes oficiales (CNE, Min. Energía, SEC, Enel, A3E)
 - Modo claro/oscuro persistente
+- Rediseño visual 3.1 inspirado en landings de energía: hero banner con foto, secciones alternadas con imágenes, banner CTA a pantalla completa, tarjetas de beneficios y FAQ en tarjetas
 
 ## Tecnologías
 
@@ -68,6 +69,7 @@ Las comparaciones y estimaciones se basan en:
 | EcoWatt 1.0 | `v1.0` | https://github.com/DereckYQL/EcoWatt-Project/releases/tag/v1.0 |
 | EcoWatt 2.0 | `v2.0` | https://github.com/DereckYQL/EcoWatt-Project/releases/tag/v2.0 |
 | EcoWatt 3.0 | `v3.0` | https://github.com/DereckYQL/EcoWatt-Project/releases/tag/v3.0 |
+| EcoWatt 3.1 | `v3.1` | https://github.com/DereckYQL/EcoWatt-Project/releases/tag/v3.1 |
 
 ## Equipo
 

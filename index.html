@@ -50,14 +50,15 @@
         </div>
     </nav>
 
-    <header id="inicio" class="hero">
+    <header id="inicio" class="hero-banner">
+
         <div class="container hero-inner">
 
             <p class="eyebrow eyebrow-light reveal">Plataforma chilena de eficiencia energética</p>
 
             <h1 class="reveal delay-1">
-                Tecnología para un consumo eléctrico
-                <span class="texto-destacado">más inteligente.</span>
+                Monitorea tu consumo eléctrico
+                <span class="texto-destacado">de forma inteligente.</span>
             </h1>
 
             <p class="lead reveal delay-2">
@@ -67,41 +68,44 @@
             </p>
 
             <div class="hero-actions reveal delay-3">
-                <a href="calculadora.html" class="btn btn-primary btn-lg">Calcular mi consumo</a>
-                <a href="#nosotros" class="btn btn-ghost btn-lg">Conocer la plataforma</a>
+                <a href="calculadora.html" class="btn btn-primary btn-lg btn-pill">Calcular mi consumo</a>
+                <a href="#nosotros" class="btn btn-outline-light btn-lg btn-pill">Conocer la plataforma</a>
             </div>
 
-            <dl class="hero-stats reveal delay-4">
-                <div class="stat">
-                    <dt>265 kWh<span>/mes</span></dt>
-                    <dd>Consumo medio de una casa en Chile</dd>
-                </div>
-                <div class="stat">
-                    <dt>$195<span>&nbsp;CLP/kWh</span></dt>
-                    <dd>Tarifa promedio a nivel nacional</dd>
-                </div>
-                <div class="stat">
-                    <dt>~0,4 kg<span>&nbsp;CO₂</span></dt>
-                    <dd>Emisión asociada a cada kWh consumido</dd>
-                </div>
-            </dl>
+        </div>
 
+        <div class="hero-confianza reveal delay-4">
+            <div class="container">
+                <dl class="trust-chips">
+                    <div class="chip">
+                        <dt>265 kWh<span>/mes</span></dt>
+                        <dd>Consumo medio de una casa en Chile</dd>
+                    </div>
+                    <div class="chip">
+                        <dt>$195<span>&nbsp;CLP/kWh</span></dt>
+                        <dd>Tarifa promedio a nivel nacional</dd>
+                    </div>
+                    <div class="chip">
+                        <dt>~0,4 kg<span>&nbsp;CO₂</span></dt>
+                        <dd>Emisión asociada a cada kWh consumido</dd>
+                    </div>
+                </dl>
+            </div>
         </div>
     </header>
 
     <main>
 
-        <section id="nosotros" class="seccion con-imagen" data-bg="verde">
+        <section id="nosotros" class="seccion">
             <div class="container">
 
-                <header class="seccion-cabecera reveal">
+                <header class="seccion-cabecera centrada reveal">
                     <p class="eyebrow">Quiénes somos</p>
                     <h2>Un proyecto con propósito</h2>
                 </header>
 
-                <div class="nosotros-grid">
-
-                    <div class="nosotros-texto reveal">
+                <div class="zigzag">
+                    <div class="zigzag-texto reveal">
                         <p>
                             Somos un equipo de la carrera de Programación del
                             <strong>Instituto Superior de Comercio de Valparaíso</strong>.
@@ -121,48 +125,44 @@
                         </p>
                     </div>
 
-                    <div class="como-funciona reveal delay-1">
-                        <h3>Cómo funciona</h3>
-                        <ol class="pasos">
-                            <li>
-                                <span class="paso-num">01</span>
-                                <div>
-                                    <h4>Registra tus equipos</h4>
-                                    <p>Ingresa cada electrodoméstico con su potencia y horas de uso diario.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="paso-num">02</span>
-                                <div>
-                                    <h4>Obtén tu consumo</h4>
-                                    <p>Calculamos kWh mensuales y costo estimado según la tarifa de tu zona.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="paso-num">03</span>
-                                <div>
-                                    <h4>Compara con el país</h4>
-                                    <p>Contrasta tu consumo con el promedio nacional y estima tus emisiones.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="paso-num">04</span>
-                                <div>
-                                    <h4>Recibe recomendaciones</h4>
-                                    <p>Sugerencias personalizadas basadas en datos CNE y Ministerio de Energía.</p>
-                                </div>
-                            </li>
-                        </ol>
-                    </div>
-
+                    <figure class="zigzag-media reveal delay-1">
+                        <img src="img/seccion-verde.jpg" alt="Paisaje de energía renovable" loading="lazy">
+                    </figure>
                 </div>
+
+                <div class="como-funciona">
+                    <h3 class="reveal">Cómo funciona</h3>
+                    <ol class="pasos-grid">
+                        <li class="paso-card reveal">
+                            <span class="paso-num">01</span>
+                            <h4>Registra tus equipos</h4>
+                            <p>Ingresa cada electrodoméstico con su potencia y horas de uso diario.</p>
+                        </li>
+                        <li class="paso-card reveal delay-1">
+                            <span class="paso-num">02</span>
+                            <h4>Obtén tu consumo</h4>
+                            <p>Calculamos kWh mensuales y costo estimado según la tarifa de tu zona.</p>
+                        </li>
+                        <li class="paso-card reveal delay-2">
+                            <span class="paso-num">03</span>
+                            <h4>Compara con el país</h4>
+                            <p>Contrasta tu consumo con el promedio nacional y estima tus emisiones.</p>
+                        </li>
+                        <li class="paso-card reveal delay-3">
+                            <span class="paso-num">04</span>
+                            <h4>Recibe recomendaciones</h4>
+                            <p>Sugerencias personalizadas basadas en datos CNE y Ministerio de Energía.</p>
+                        </li>
+                    </ol>
+                </div>
+
             </div>
         </section>
 
-        <section id="equipo" class="seccion con-imagen" data-bg="equipo">
+        <section id="equipo" class="seccion banda">
             <div class="container">
 
-                <header class="seccion-cabecera reveal">
+                <header class="seccion-cabecera centrada reveal">
                     <p class="eyebrow">Nuestro equipo</p>
                     <h2>Las personas detrás del proyecto</h2>
                 </header>
@@ -201,62 +201,73 @@
             </div>
         </section>
 
-        <section id="consejos" class="seccion con-imagen" data-bg="consejos">
+        <section class="banner-cta">
+            <div class="container banner-cta-inner">
+                <h2 class="reveal">¿Sabes cuánto consume realmente tu hogar?</h2>
+                <p class="reveal delay-1">
+                    En pocos minutos puedes estimar tu gasto mensual en pesos chilenos,
+                    compararlo con el promedio nacional y descubrir qué equipos pesan más en tu boleta.
+                </p>
+                <a href="calculadora.html" class="btn btn-primary btn-lg btn-pill reveal delay-2">Calcular mi consumo ahora</a>
+            </div>
+        </section>
+
+        <section id="consejos" class="seccion">
             <div class="container">
 
-                <header class="seccion-cabecera reveal">
+                <header class="seccion-cabecera centrada reveal">
                     <p class="eyebrow">Ahorro energético</p>
                     <h2>Seis medidas con impacto real en tu boleta</h2>
-                    <p class="seccion-descripcion">
+                    <p class="seccion-descripcion centro">
                         Recomendaciones prácticas priorizadas por su retorno: pequeños cambios
                         de hábito que se reflejan mes a mes en la boleta del hogar.
                     </p>
                 </header>
 
-                <div class="consejos-grid">
+                <div class="beneficios-grid">
 
-                    <article class="consejo-item reveal">
-                        <span class="consejo-num">01</span>
+                    <article class="tarjeta-beneficio reveal">
+                        <span class="beneficio-num">01</span>
                         <div>
                             <h3>Migra a iluminación LED</h3>
                             <p>Una bombilla LED consume hasta un <strong>85&nbsp;% menos</strong> que una incandescente y dura unas 15 veces más. Es el reemplazo con mejor retorno de inversión.</p>
                         </div>
                     </article>
 
-                    <article class="consejo-item reveal delay-1">
-                        <span class="consejo-num">02</span>
+                    <article class="tarjeta-beneficio reveal delay-1">
+                        <span class="beneficio-num">02</span>
                         <div>
                             <h3>Elimina el consumo fantasma</h3>
                             <p>Los equipos en modo espera pueden sumar entre un <strong>5&nbsp;% y 10&nbsp;%</strong> de tu boleta mensual. Usa regletas con interruptor para cortar la energía por completo.</p>
                         </div>
                     </article>
 
-                    <article class="consejo-item reveal delay-2">
-                        <span class="consejo-num">03</span>
+                    <article class="tarjeta-beneficio reveal delay-2">
+                        <span class="beneficio-num">03</span>
                         <div>
                             <h3>Racionaliza el agua caliente</h3>
                             <p>El termo eléctrico es uno de los mayores gastos del hogar. Reduce las duchas a <strong>5-8 minutos</strong> y ajusta la temperatura del termo a unos 55&nbsp;°C.</p>
                         </div>
                     </article>
 
-                    <article class="consejo-item reveal">
-                        <span class="consejo-num">04</span>
+                    <article class="tarjeta-beneficio reveal">
+                        <span class="beneficio-num">04</span>
                         <div>
                             <h3>Calefacción eficiente</h3>
                             <p>Sella puertas y ventanas para evitar fugas de calor, no calefacciones ambientes vacíos y prefiere equipos con <strong>termostato o temporizador</strong>.</p>
                         </div>
                     </article>
 
-                    <article class="consejo-item reveal delay-1">
-                        <span class="consejo-num">05</span>
+                    <article class="tarjeta-beneficio reveal delay-1">
+                        <span class="beneficio-num">05</span>
                         <div>
                             <h3>Atiende el horario punta</h3>
                             <p>En las tarifas BT el kWh cuesta más entre <strong>18:00 y 23:00</strong>. Concentra lavadora, secadora y cocina fuera de ese rango horario.</p>
                         </div>
                     </article>
 
-                    <article class="consejo-item reveal delay-2">
-                        <span class="consejo-num">06</span>
+                    <article class="tarjeta-beneficio reveal delay-2">
+                        <span class="beneficio-num">06</span>
                         <div>
                             <h3>Cargas completas y agua fría</h3>
                             <p>Usa lavadora y lavavajillas solo con <strong>carga completa</strong>. Lavar con agua fría reduce hasta un 80&nbsp;% la energía empleada por ciclo.</p>
@@ -267,7 +278,7 @@
             </div>
         </section>
 
-        <section id="etiqueta" class="seccion con-imagen" data-bg="etiqueta">
+        <section id="etiqueta" class="seccion banda">
             <div class="container">
 
                 <header class="seccion-cabecera reveal">
@@ -275,9 +286,8 @@
                     <h2>Cómo leer la etiqueta de eficiencia energética</h2>
                 </header>
 
-                <div class="etiqueta-grid">
-
-                    <div class="reveal">
+                <div class="zigzag zigzag-invertido">
+                    <div class="zigzag-texto reveal">
                         <p>
                             En Chile, la <strong>etiqueta de eficiencia energética</strong> es obligatoria
                             para refrigeradores, lavadoras, secadoras, televisores, lámparas y aires
@@ -291,7 +301,7 @@
                         </p>
                     </div>
 
-                    <div class="escala reveal delay-1" aria-label="Escala de eficiencia energética">
+                    <div class="escala-panel reveal delay-1" aria-label="Escala de eficiencia energética">
                         <div class="nivel"><span class="letra l-a3">A+++</span><span class="barra b-a3"></span><span class="texto-nivel">Máxima eficiencia · menor consumo</span></div>
                         <div class="nivel"><span class="letra l-a2">A++</span><span class="barra b-a2"></span></div>
                         <div class="nivel"><span class="letra l-a1">A+</span><span class="barra b-a1"></span></div>
@@ -300,57 +310,57 @@
                         <div class="nivel"><span class="letra l-c">C</span><span class="barra b-c"></span></div>
                         <div class="nivel"><span class="letra l-d">D</span><span class="barra b-d"></span><span class="texto-nivel">Menor eficiencia · mayor consumo</span></div>
                     </div>
-
                 </div>
+
             </div>
         </section>
 
-        <section id="glosario" class="seccion con-imagen" data-bg="glosario">
+        <section id="glosario" class="seccion">
             <div class="container">
 
-                <header class="seccion-cabecera reveal">
+                <header class="seccion-cabecera centrada reveal">
                     <p class="eyebrow">Glosario</p>
                     <h2>Conceptos clave del mundo eléctrico</h2>
                 </header>
 
                 <dl class="glosario-grid">
 
-                    <div class="termino reveal">
+                    <div class="termino-card reveal">
                         <dt>Watt (W)</dt>
                         <dd>Unidad de <strong>potencia</strong>: indica cuánta energía usa un equipo mientras está encendido.</dd>
                     </div>
 
-                    <div class="termino reveal delay-1">
+                    <div class="termino-card reveal delay-1">
                         <dt>Kilowatt-hora (kWh)</dt>
                         <dd>Unidad de <strong>energía</strong>: equivale a 1.000 W funcionando durante una hora. Es lo que cobra la distribuidora en tu boleta.</dd>
                     </div>
 
-                    <div class="termino reveal delay-2">
+                    <div class="termino-card reveal delay-2">
                         <dt>Potencia vs energía</dt>
                         <dd>La potencia es el ritmo al que gastas electricidad; la energía es el total acumulado. Energía = potencia × horas de uso.</dd>
                     </div>
 
-                    <div class="termino reveal">
+                    <div class="termino-card reveal">
                         <dt>Consumo fantasma</dt>
                         <dd>Energía que consumen los aparatos apagados pero conectados a la corriente: standby, cargadores enchufados, etc.</dd>
                     </div>
 
-                    <div class="termino reveal delay-1">
+                    <div class="termino-card reveal delay-1">
                         <dt>Tarifa BT</dt>
                         <dd>Sistema de cobro residencial chileno por bloques horarios: punta (más caro, 18:00-23:00), valle y restante.</dd>
                     </div>
 
-                    <div class="termino reveal delay-2">
+                    <div class="termino-card reveal delay-2">
                         <dt>Matriz eléctrica</dt>
                         <dd>Conjunto de fuentes que generan la electricidad del país. A mayor participación renovable, menores emisiones por kWh.</dd>
                     </div>
 
-                    <div class="termino reveal">
+                    <div class="termino-card reveal">
                         <dt>Eficiencia energética</dt>
                         <dd>Usar menos energía para obtener el mismo resultado: la misma luz, el mismo frío, la misma limpieza.</dd>
                     </div>
 
-                    <div class="termino reveal delay-1">
+                    <div class="termino-card reveal delay-1">
                         <dt>Huella de carbono</dt>
                         <dd>Gases de efecto invernadero (kg de CO₂ equivalente) asociados a una actividad; cada kWh generado emite CO₂.</dd>
                     </div>
@@ -359,10 +369,10 @@
             </div>
         </section>
 
-        <section id="faq" class="seccion con-imagen" data-bg="faq">
+        <section id="faq" class="seccion banda">
             <div class="container container-angosto">
 
-                <header class="seccion-cabecera reveal">
+                <header class="seccion-cabecera centrada reveal">
                     <p class="eyebrow">Preguntas frecuentes</p>
                     <h2>Resolvemos tus dudas</h2>
                 </header>
@@ -400,58 +410,54 @@
             </div>
         </section>
 
-        <section id="fuentes" class="seccion con-imagen" data-bg="fuentes">
+        <section id="fuentes" class="seccion">
             <div class="container">
 
-                <header class="seccion-cabecera reveal">
+                <header class="seccion-cabecera centrada reveal">
                     <p class="eyebrow">Fuentes oficiales</p>
                     <h2>Datos respaldados por instituciones</h2>
-                    <p class="seccion-descripcion">
+                    <p class="seccion-descripcion centro">
                         Las tarifas, estadísticas y referencias normativas de EcoWatt provienen
                         de las siguientes fuentes públicas.
                     </p>
                 </header>
 
-                <ul class="fuentes-lista reveal">
+                <ul class="fuentes-grid">
 
-                    <li>
-                        <div>
-                            <h3>CNE — Comisión Nacional de Energía</h3>
-                            <p>Estadísticas, tarifas y datos del sector eléctrico nacional.</p>
-                        </div>
+                    <li class="fuente-card reveal">
+                        <h3>CNE — Comisión Nacional de Energía</h3>
+                        <p>Estadísticas, tarifas y datos del sector eléctrico nacional.</p>
                         <a href="https://www.cne.cl" target="_blank" rel="noopener">www.cne.cl<span aria-hidden="true"> ↗</span></a>
                     </li>
 
-                    <li>
-                        <div>
-                            <h3>Ministerio de Energía</h3>
-                            <p>Informes de usos de la energía en los hogares chilenos y políticas públicas.</p>
-                        </div>
+                    <li class="fuente-card reveal delay-1">
+                        <h3>Ministerio de Energía</h3>
+                        <p>Informes de usos de la energía en los hogares chilenos y políticas públicas.</p>
                         <a href="https://www.energia.gob.cl" target="_blank" rel="noopener">www.energia.gob.cl<span aria-hidden="true"> ↗</span></a>
                     </li>
 
-                    <li>
-                        <div>
-                            <h3>SEC — Superintendencia de Electricidad y Combustibles</h3>
-                            <p>Regulación y etiquetado de eficiencia energética de equipos.</p>
-                        </div>
+                    <li class="fuente-card reveal delay-2">
+                        <h3>SEC — Superintendencia de Electricidad y Combustibles</h3>
+                        <p>Regulación y etiquetado de eficiencia energética de equipos.</p>
                         <a href="https://www.sec.cl" target="_blank" rel="noopener">www.sec.cl<span aria-hidden="true"> ↗</span></a>
                     </li>
 
-                    <li>
-                        <div>
-                            <h3>Enel Distribución</h3>
-                            <p>Cuadros tarifarios vigentes y consejos de consumo eficiente.</p>
-                        </div>
+                    <li class="fuente-card reveal">
+                        <h3>Enel Distribución</h3>
+                        <p>Cuadros tarifarios vigentes y consejos de consumo eficiente.</p>
                         <a href="https://eneldistribucion.cl" target="_blank" rel="noopener">eneldistribucion.cl<span aria-hidden="true"> ↗</span></a>
                     </li>
 
-                    <li>
-                        <div>
-                            <h3>A3E — Agencia Chilena de Eficiencia Energética</h3>
-                            <p>Guías y herramientas de ahorro para hogares y empresas.</p>
-                        </div>
+                    <li class="fuente-card reveal delay-1">
+                        <h3>A3E — Agencia Chilena de Eficiencia Energética</h3>
+                        <p>Guías y herramientas de ahorro para hogares y empresas.</p>
                         <a href="https://a3e.cl" target="_blank" rel="noopener">a3e.cl<span aria-hidden="true"> ↗</span></a>
+                    </li>
+
+                    <li class="fuente-card fuente-cta reveal delay-2">
+                        <h3>¿Listo para dar el primer paso?</h3>
+                        <p>Usa la calculadora EcoWatt y descubre en minutos el detalle de tu consumo eléctrico.</p>
+                        <a href="calculadora.html">Ir a la calculadora<span aria-hidden="true"> →</span></a>
                     </li>
 
                 </ul>
@@ -501,7 +507,7 @@
                         <textarea id="contactoMensaje" rows="4" placeholder="Cuéntanos en qué podemos ayudarte" required></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-pill">Enviar mensaje</button>
 
                     <p id="mensajeFormulario" class="mensaje-exito" hidden>
                         Gracias por escribirnos. Te responderemos pronto.
