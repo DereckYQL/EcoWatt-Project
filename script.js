@@ -1,10 +1,3 @@
-/* ==========================================================
-   EcoWatt - Lógica principal
-   Funciona en ambas páginas (calculadora e inicio)
-   ========================================================== */
-
-/* ==================== TEMA CLARO / OSCURO ==================== */
-
 const ICONO_SOL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
 const ICONO_LUNA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
@@ -18,8 +11,6 @@ function aplicarTema(tema) {
 
     localStorage.setItem("ecowatt_theme", tema);
 }
-
-/* ==================== NAVEGACIÓN (móvil + sombra al desplazar) ==================== */
 
 const navToggle = document.getElementById("navToggle");
 
@@ -49,8 +40,6 @@ function actualizarNavbar() {
 window.addEventListener("scroll", actualizarNavbar, { passive: true });
 actualizarNavbar();
 
-/* ==================== ANIMACIÓN DE APARICIÓN AL HACER SCROLL ==================== */
-
 const elementosReveal = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && elementosReveal.length > 0) {
@@ -77,10 +66,6 @@ document.querySelectorAll(".btn-tema").forEach(btn => {
 
 aplicarTema(document.documentElement.dataset.theme || "light");
 
-/* ==========================================================
-   FORMULARIO DE CONTACTO (index.html)
-   ========================================================== */
-
 const formContacto = document.getElementById("formContacto");
 
 if (formContacto) {
@@ -105,23 +90,15 @@ if (formContacto) {
     });
 }
 
-/* ==========================================================
-   CALCULADORA
-   ========================================================== */
-
 if (document.getElementById("graficoConsumo")) {
 
-    /* ---------- Estado ---------- */
-    let equipos = []; // { nombre, potencia, horas }
+    let equipos = [];
 
-    /* Escala del comparador y promedio nacional de una casa familiar */
     const ESCALA_MAX_KWH = 400;
     const PROMEDIO_CASA_CHILE = 265;
 
-    /* Factor de emisión promedio matriz eléctrica chilena (kg CO2 por kWh) */
     const FACTOR_CO2 = 0.4;
 
-    /* Catálogo con potencias típicas (Watts) para autocompletar */
     const CATALOGO = {
         "refrigerador": 150,
         "freezer": 200,
@@ -161,7 +138,6 @@ if (document.getElementById("graficoConsumo")) {
         "#d81b60", "#00acc1", "#7cb342", "#fb8c00", "#3949ab"
     ];
 
-    /* ---------- Referencias DOM ---------- */
     const inputNombre = document.getElementById("nombre");
     const inputPotencia = document.getElementById("potencia");
     const inputHoras = document.getElementById("horas");
@@ -176,7 +152,6 @@ if (document.getElementById("graficoConsumo")) {
     const tuConsumoLabel = document.getElementById("tuConsumoLabel");
     const co2Info = document.getElementById("co2Info");
 
-    /* ---------- Gráficos Chart.js ---------- */
     let graficoBarras = null;
     let graficoTorta = null;
 
@@ -230,8 +205,6 @@ if (document.getElementById("graficoConsumo")) {
         });
     }
 
-    /* ---------- Utilidades ---------- */
-
     function normalizar(texto) {
         return texto.toLowerCase().trim();
     }
@@ -249,8 +222,6 @@ if (document.getElementById("graficoConsumo")) {
         localStorage.setItem("ecowatt_tarifa", selectorTarifa.value);
     }
 
-    /* ---------- Autocompletado de potencia típica ---------- */
-
     inputNombre.addEventListener("input", () => {
         const clave = normalizar(inputNombre.value);
 
@@ -267,8 +238,6 @@ if (document.getElementById("graficoConsumo")) {
     });
 
     selectorTarifa.addEventListener("change", recalcularTodo);
-
-    /* ---------- Agregar electrodoméstico ---------- */
 
     window.agregarElectrodomestico = function () {
 
@@ -301,8 +270,6 @@ if (document.getElementById("graficoConsumo")) {
         recalcularTodo();
     };
 
-    /* ---------- Eliminar electrodoméstico ---------- */
-
     window.eliminarEquipo = function (indice) {
         equipos.splice(indice, 1);
         recalcularTodo();
@@ -315,8 +282,6 @@ if (document.getElementById("graficoConsumo")) {
         }
     });
 
-    /* ---------- Recálculo general ---------- */
-
     function recalcularTodo() {
 
         const tarifa = tarifaActual();
@@ -327,7 +292,6 @@ if (document.getElementById("graficoConsumo")) {
         const totalKwh = consumos.reduce((a, b) => a + b, 0);
         const totalClp = costos.reduce((a, b) => a + b, 0);
 
-        /* --- Tabla --- */
         if (equipos.length === 0) {
             tablaDatos.innerHTML = `
                 <tr class="fila-vacia">
@@ -349,29 +313,21 @@ if (document.getElementById("graficoConsumo")) {
             `).join("");
         }
 
-        /* --- Totales --- */
         elTotal.innerHTML = `Consumo total: <span>${totalKwh.toFixed(2)} kWh</span>`;
         elCostoTotal.innerHTML = `Costo estimado: <span>${formatoCLP(totalClp)} CLP</span>`;
 
-        /* --- Gráficos --- */
         actualizarGraficos(consumos);
 
-        /* --- Comparador nacional --- */
         actualizarComparador(totalKwh);
 
-        /* --- CO2 --- */
         actualizarCO2(totalKwh);
 
-        /* --- Recomendaciones por nivel --- */
         actualizarNivel(totalKwh);
 
-        /* --- Agente IA --- */
         generarRecomendacionIA(consumos, tarifa);
 
         guardarLocalStorage();
     }
-
-    /* ---------- Gráficos ---------- */
 
     function actualizarGraficos(consumos) {
         if (!graficoBarras) return;
@@ -389,8 +345,6 @@ if (document.getElementById("graficoConsumo")) {
         graficoTorta.update();
     }
 
-    /* ---------- Comparador vs promedio chileno ---------- */
-
     function actualizarComparador(totalKwh) {
 
         const porcentaje = Math.min((totalKwh / ESCALA_MAX_KWH) * 100, 100);
@@ -407,8 +361,6 @@ if (document.getElementById("graficoConsumo")) {
         }
     }
 
-    /* ---------- Huella de carbono ---------- */
-
     function actualizarCO2(totalKwh) {
 
         if (totalKwh === 0) {
@@ -418,15 +370,13 @@ if (document.getElementById("graficoConsumo")) {
         }
 
         const kgCO2 = totalKwh * FACTOR_CO2;
-        const kmAuto = (kgCO2 * 1000) / 120; // un auto emite ~120 g CO2 por km
+        const kmAuto = (kgCO2 * 1000) / 120;
 
         co2Info.innerHTML =
             `Tu consumo mensual equivale a <strong>${kgCO2.toFixed(1)} kg de CO₂</strong> emitidos
              (factor chileno ~${FACTOR_CO2} kg/kWh), aproximadamente lo mismo que
              <strong>${Math.round(kmAuto)} km recorridos en auto</strong>.`;
     }
-
-    /* ---------- Nivel de consumo (recomendación simple) ---------- */
 
     function actualizarNivel(totalKwh) {
         if (totalKwh === 0) {
@@ -446,13 +396,6 @@ if (document.getElementById("graficoConsumo")) {
                 "Consumo alto: se recomienda reducir el uso de algunos equipos y revisar la sección de consejos de ahorro.";
         }
     }
-
-    /* ==========================================================
-       AGENTE IA - Recomendaciones basadas en datos reales de Chile
-       Fuentes: Comisión Nacional de Energía (CNE), Ministerio de
-       Energía (Informe de Usos de la Energía en Hogares) y
-       cuadros tarifarios Enel Distribución.
-       ========================================================== */
 
     const CONSEJOS_POR_TIPO = [
         { patron: /refri|nevera/i,
@@ -492,7 +435,6 @@ if (document.getElementById("graficoConsumo")) {
             return;
         }
 
-        // Comparación con rangos reales de hogares en Chile (CNE / Min. Energía)
         let comparacion;
         if (totalKwh <= 220) {
             comparacion = `Tu consumo (${totalKwh.toFixed(1)} kWh) está dentro del rango típico de un departamento en Chile (120-220 kWh/mes según la CNE).`;
@@ -502,11 +444,9 @@ if (document.getElementById("graficoConsumo")) {
             comparacion = `Tu consumo (${totalKwh.toFixed(1)} kWh) supera el promedio nacional de una casa familiar (180-350 kWh/mes). Podrías estar entrando en tramo tarifario BT-2, más costoso.`;
         }
 
-        // Estimación de costo mensual según la zona seleccionada
         const costoEstimado = totalKwh * tarifa;
         const costoTexto = `Con la tarifa seleccionada ($${tarifa}/kWh), tu gasto mensual estimado es de <strong>${formatoCLP(costoEstimado)} CLP</strong> (${formatoCLP(costoEstimado * 12)} al año).`;
 
-        // Identificar el electrodoméstico de mayor consumo
         let indiceMax = 0;
         for (let i = 1; i < consumos.length; i++) {
             if (consumos[i] > consumos[indiceMax]) indiceMax = i;
@@ -516,7 +456,6 @@ if (document.getElementById("graficoConsumo")) {
 
         const focoTexto = `El equipo que más aporta a tu consumo es <strong>${nombreMax}</strong>, con ${consumoMax.toFixed(1)} kWh/mes (${((consumoMax / totalKwh) * 100).toFixed(0)}% del total).`;
 
-        // Buscar consejo específico según el tipo de electrodoméstico detectado
         let consejoEspecifico = "";
         for (const item of CONSEJOS_POR_TIPO) {
             if (item.patron.test(nombreMax)) {
@@ -535,8 +474,6 @@ if (document.getElementById("graficoConsumo")) {
             <p><strong>Recomendación del agente:</strong> ${consejoEspecifico}</p>
         `;
     }
-
-    /* ---------- Carga inicial desde localStorage ---------- */
 
     function cargarDatosGuardados() {
 
