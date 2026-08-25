@@ -3,56 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoWatt | Inicio</title>
+    <title>EcoWatt | Eficiencia energética para hogares y negocios</title>
+    <meta name="description" content="EcoWatt: plataforma chilena para conocer, monitorear y optimizar el consumo eléctrico de hogares y pequeños negocios. Cálculos basados en datos CNE y Ministerio de Energía.">
+    <meta name="theme-color" content="#0a2540">
+
+    <script>document.documentElement.dataset.theme = localStorage.getItem("ecowatt_theme") || "light";</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/png">
 </head>
 
-<body class="inicio">
+<body data-pagina="inicio">
 
-    <div class="overlay">
+    <!-- ============ BARRA DE NAVEGACIÓN ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-inner">
 
-        <div class="contenedor-principal">
+            <a href="#inicio" class="brand">
+                <img src="logo.png" alt="">
+                <span>Eco<em>Watt</em></span>
+            </a>
 
-            <img src="logo.png" alt="EcoWatt" class="logo">
-            <h1>EcoWatt</h1>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
 
-            <p class="subtitulo">
-                Tecnología para un consumo energético más inteligente.
-            </p>
-
-            <div class="info-box">
-
-                <h2>¿Quiénes Somos?</h2>
-
-                <p>
-                    Somos un grupo de estudiantes de la carrera de Programación
-                    del Instituto Superior de Comercio de Valparaíso.
-                    Desarrollamos soluciones tecnológicas enfocadas en mejorar
-                    la calidad de vida de las personas mediante herramientas
-                    innovadoras y sustentables.
-                </p>
-
-                <h2>¿Qué es EcoWatt?</h2>
-
-                <p>
-                    EcoWatt es una plataforma diseñada para ayudar a hogares
-                    y pequeños negocios a conocer, monitorear y optimizar su
-                    consumo eléctrico. Mediante cálculos automáticos y
-                    recomendaciones inteligentes, permite tomar decisiones
-                    informadas para reducir costos y contribuir al cuidado
-                    del medio ambiente.
-                </p>
-
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#consejos">Consejos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <a href="calculadora.html" class="btn btn-primary btn-nav">Calculadora</a>
             </div>
 
-            <a href="calculadora.html" class="btn-principal">
-                Ingresar a EcoWatt
-            </a>
+            <button class="btn-tema" id="btnTema" aria-label="Cambiar tema claro u oscuro"></button>
+
+        </div>
+    </nav>
+
+    <!-- ============ PORTADA ============ -->
+    <header id="inicio" class="hero">
+        <div class="container hero-inner">
+
+            <p class="eyebrow eyebrow-light reveal">Plataforma chilena de eficiencia energética</p>
+
+            <h1 class="reveal delay-1">
+                Tecnología para un consumo eléctrico
+                <span class="texto-destacado">más inteligente.</span>
+            </h1>
+
+            <p class="lead reveal delay-2">
+                EcoWatt permite a hogares y pequeños negocios medir, comprender y optimizar
+                su consumo eléctrico, con estimaciones basadas en tarifas vigentes y datos
+                oficiales del sector energético de Chile.
+            </p>
+
+            <div class="hero-actions reveal delay-3">
+                <a href="calculadora.html" class="btn btn-primary btn-lg">Calcular mi consumo</a>
+                <a href="#nosotros" class="btn btn-ghost btn-lg">Conocer la plataforma</a>
+            </div>
+
+            <dl class="hero-stats reveal delay-4">
+                <div class="stat">
+                    <dt>265 kWh<span>/mes</span></dt>
+                    <dd>Consumo medio de una casa en Chile</dd>
+                </div>
+                <div class="stat">
+                    <dt>$195<span>&nbsp;CLP/kWh</span></dt>
+                    <dd>Tarifa promedio a nivel nacional</dd>
+                </div>
+                <div class="stat">
+                    <dt>~0,4 kg<span>&nbsp;CO₂</span></dt>
+                    <dd>Emisión asociada a cada kWh consumido</dd>
+                </div>
+            </dl>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ NOSOTROS ============ -->
+        <section id="nosotros" class="seccion con-imagen" data-bg="verde">
+            <div class="container">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Quiénes somos</p>
+                    <h2>Un proyecto con propósito</h2>
+                </header>
+
+                <div class="nosotros-grid">
+
+                    <div class="nosotros-texto reveal">
+                        <p>
+                            Somos un equipo de la carrera de Programación del
+                            <strong>Instituto Superior de Comercio de Valparaíso</strong>.
+                            Desarrollamos soluciones tecnológicas orientadas a mejorar la calidad
+                            de vida de las personas mediante herramientas innovadoras y sustentables.
+                        </p>
+                        <p>
+                            <strong>EcoWatt</strong> nace como respuesta a una necesidad concreta:
+                            la mayoría de los hogares no sabe en qué se va su electricidad. La
+                            plataforma traduce los watts y las horas de uso en pesos, kilovatios-hora
+                            y emisiones de CO₂, entregando una visión clara del gasto y recomendaciones
+                            accionables para reducirlo.
+                        </p>
+                        <p>
+                            Todo el procesamiento ocurre localmente en tu navegador: tus datos
+                            nunca salen de tu equipo.
+                        </p>
+                    </div>
+
+                    <div class="como-funciona reveal delay-1">
+                        <h3>Cómo funciona</h3>
+                        <ol class="pasos">
+                            <li>
+                                <span class="paso-num">01</span>
+                                <div>
+                                    <h4>Registra tus equipos</h4>
+                                    <p>Ingresa cada electrodoméstico con su potencia y horas de uso diario.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="paso-num">02</span>
+                                <div>
+                                    <h4>Obtén tu consumo</h4>
+                                    <p>Calculamos kWh mensuales y costo estimado según la tarifa de tu zona.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="paso-num">03</span>
+                                <div>
+                                    <h4>Compara con el país</h4>
+                                    <p>Contrasta tu consumo con el promedio nacional y estima tus emisiones.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="paso-num">04</span>
+                                <div>
+                                    <h4>Recibe recomendaciones</h4>
+                                    <p>Sugerencias personalizadas basadas en datos CNE y Ministerio de Energía.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EQUIPO ============ -->
+        <section id="equipo" class="seccion con-imagen" data-bg="equipo">
+            <div class="container">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Nuestro equipo</p>
+                    <h2>Las personas detrás del proyecto</h2>
+                </header>
+
+                <div class="equipo-grid">
+
+                    <article class="tarjeta-equipo reveal">
+                        <div class="avatar">IN</div>
+                        <h3>Integrante 1</h3>
+                        <span class="rol">Liderazgo de proyecto</span>
+                        <p>Coordinación del equipo, arquitectura de la solución y desarrollo backend.</p>
+                    </article>
+
+                    <article class="tarjeta-equipo reveal delay-1">
+                        <div class="avatar">IN</div>
+                        <h3>Integrante 2</h3>
+                        <span class="rol">Desarrollo frontend</span>
+                        <p>Diseño e implementación de las interfaces HTML, CSS y JavaScript.</p>
+                    </article>
+
+                    <article class="tarjeta-equipo reveal delay-2">
+                        <div class="avatar">IN</div>
+                        <h3>Integrante 3</h3>
+                        <span class="rol">Análisis de datos</span>
+                        <p>Investigación de tarifas y estadísticas energéticas (CNE, Ministerio de Energía).</p>
+                    </article>
+
+                    <article class="tarjeta-equipo reveal delay-3">
+                        <div class="avatar">IN</div>
+                        <h3>Integrante 4</h3>
+                        <span class="rol">Documentación y QA</span>
+                        <p>Pruebas del sistema, redacción de documentación y material de presentación.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONSEJOS ============ -->
+        <section id="consejos" class="seccion con-imagen" data-bg="consejos">
+            <div class="container">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Ahorro energético</p>
+                    <h2>Seis medidas con impacto real en tu boleta</h2>
+                    <p class="seccion-descripcion">
+                        Recomendaciones prácticas priorizadas por su retorno: pequeños cambios
+                        de hábito que se reflejan mes a mes en la boleta del hogar.
+                    </p>
+                </header>
+
+                <div class="consejos-grid">
+
+                    <article class="consejo-item reveal">
+                        <span class="consejo-num">01</span>
+                        <div>
+                            <h3>Migra a iluminación LED</h3>
+                            <p>Una bombilla LED consume hasta un <strong>85&nbsp;% menos</strong> que una incandescente y dura unas 15 veces más. Es el reemplazo con mejor retorno de inversión.</p>
+                        </div>
+                    </article>
+
+                    <article class="consejo-item reveal delay-1">
+                        <span class="consejo-num">02</span>
+                        <div>
+                            <h3>Elimina el consumo fantasma</h3>
+                            <p>Los equipos en modo espera pueden sumar entre un <strong>5&nbsp;% y 10&nbsp;%</strong> de tu boleta mensual. Usa regletas con interruptor para cortar la energía por completo.</p>
+                        </div>
+                    </article>
+
+                    <article class="consejo-item reveal delay-2">
+                        <span class="consejo-num">03</span>
+                        <div>
+                            <h3>Racionaliza el agua caliente</h3>
+                            <p>El termo eléctrico es uno de los mayores gastos del hogar. Reduce las duchas a <strong>5-8 minutos</strong> y ajusta la temperatura del termo a unos 55&nbsp;°C.</p>
+                        </div>
+                    </article>
+
+                    <article class="consejo-item reveal">
+                        <span class="consejo-num">04</span>
+                        <div>
+                            <h3>Calefacción eficiente</h3>
+                            <p>Sella puertas y ventanas para evitar fugas de calor, no calefacciones ambientes vacíos y prefiere equipos con <strong>termostato o temporizador</strong>.</p>
+                        </div>
+                    </article>
+
+                    <article class="consejo-item reveal delay-1">
+                        <span class="consejo-num">05</span>
+                        <div>
+                            <h3>Atiende el horario punta</h3>
+                            <p>En las tarifas BT el kWh cuesta más entre <strong>18:00 y 23:00</strong>. Concentra lavadora, secadora y cocina fuera de ese rango horario.</p>
+                        </div>
+                    </article>
+
+                    <article class="consejo-item reveal delay-2">
+                        <span class="consejo-num">06</span>
+                        <div>
+                            <h3>Cargas completas y agua fría</h3>
+                            <p>Usa lavadora y lavavajillas solo con <strong>carga completa</strong>. Lavar con agua fría reduce hasta un 80&nbsp;% la energía empleada por ciclo.</p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ETIQUETA DE EFICIENCIA ============ -->
+        <section id="etiqueta" class="seccion con-imagen" data-bg="etiqueta">
+            <div class="container">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Etiquetado SEC</p>
+                    <h2>Cómo leer la etiqueta de eficiencia energética</h2>
+                </header>
+
+                <div class="etiqueta-grid">
+
+                    <div class="reveal">
+                        <p>
+                            En Chile, la <strong>etiqueta de eficiencia energética</strong> es obligatoria
+                            para refrigeradores, lavadoras, secadoras, televisores, lámparas y aires
+                            acondicionados. La regula la <strong>SEC</strong> (Superintendencia de
+                            Electricidad y Combustibles) y clasifica cada equipo según su consumo
+                            relativo respecto de modelos equivalentes:
+                        </p>
+                        <p class="nota-seccion">
+                            Reemplazar un equipo antiguo por uno clase A+ o A++ reduce su consumo
+                            entre un 20&nbsp;% y un 40&nbsp;%. Revisa siempre la etiqueta antes de comprar.
+                        </p>
+                    </div>
+
+                    <div class="escala reveal delay-1" aria-label="Escala de eficiencia energética">
+                        <div class="nivel"><span class="letra l-a3">A+++</span><span class="barra b-a3"></span><span class="texto-nivel">Máxima eficiencia · menor consumo</span></div>
+                        <div class="nivel"><span class="letra l-a2">A++</span><span class="barra b-a2"></span></div>
+                        <div class="nivel"><span class="letra l-a1">A+</span><span class="barra b-a1"></span></div>
+                        <div class="nivel"><span class="letra l-a">A</span><span class="barra b-a"></span></div>
+                        <div class="nivel"><span class="letra l-b">B</span><span class="barra b-b"></span></div>
+                        <div class="nivel"><span class="letra l-c">C</span><span class="barra b-c"></span></div>
+                        <div class="nivel"><span class="letra l-d">D</span><span class="barra b-d"></span><span class="texto-nivel">Menor eficiencia · mayor consumo</span></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GLOSARIO ============ -->
+        <section id="glosario" class="seccion con-imagen" data-bg="glosario">
+            <div class="container">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Glosario</p>
+                    <h2>Conceptos clave del mundo eléctrico</h2>
+                </header>
+
+                <dl class="glosario-grid">
+
+                    <div class="termino reveal">
+                        <dt>Watt (W)</dt>
+                        <dd>Unidad de <strong>potencia</strong>: indica cuánta energía usa un equipo mientras está encendido.</dd>
+                    </div>
+
+                    <div class="termino reveal delay-1">
+                        <dt>Kilowatt-hora (kWh)</dt>
+                        <dd>Unidad de <strong>energía</strong>: equivale a 1.000 W funcionando durante una hora. Es lo que cobra la distribuidora en tu boleta.</dd>
+                    </div>
+
+                    <div class="termino reveal delay-2">
+                        <dt>Potencia vs energía</dt>
+                        <dd>La potencia es el ritmo al que gastas electricidad; la energía es el total acumulado. Energía = potencia × horas de uso.</dd>
+                    </div>
+
+                    <div class="termino reveal">
+                        <dt>Consumo fantasma</dt>
+                        <dd>Energía que consumen los aparatos apagados pero conectados a la corriente: standby, cargadores enchufados, etc.</dd>
+                    </div>
+
+                    <div class="termino reveal delay-1">
+                        <dt>Tarifa BT</dt>
+                        <dd>Sistema de cobro residencial chileno por bloques horarios: punta (más caro, 18:00-23:00), valle y restante.</dd>
+                    </div>
+
+                    <div class="termino reveal delay-2">
+                        <dt>Matriz eléctrica</dt>
+                        <dd>Conjunto de fuentes que generan la electricidad del país. A mayor participación renovable, menores emisiones por kWh.</dd>
+                    </div>
+
+                    <div class="termino reveal">
+                        <dt>Eficiencia energética</dt>
+                        <dd>Usar menos energía para obtener el mismo resultado: la misma luz, el mismo frío, la misma limpieza.</dd>
+                    </div>
+
+                    <div class="termino reveal delay-1">
+                        <dt>Huella de carbono</dt>
+                        <dd>Gases de efecto invernadero (kg de CO₂ equivalente) asociados a una actividad; cada kWh generado emite CO₂.</dd>
+                    </div>
+
+                </dl>
+            </div>
+        </section>
+
+        <!-- ============ FAQ ============ -->
+        <section id="faq" class="seccion con-imagen" data-bg="faq">
+            <div class="container container-angosto">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Preguntas frecuentes</p>
+                    <h2>Resolvemos tus dudas</h2>
+                </header>
+
+                <details class="faq-item reveal">
+                    <summary>¿Cuánto consume en promedio un hogar chileno?</summary>
+                    <p>Según datos del Ministerio de Energía y la CNE, un departamento promedio consume entre <strong>120 y 220 kWh/mes</strong>, mientras que una casa familiar se ubica entre <strong>180 y 350 kWh/mes</strong>, con variaciones según zona climática y tipo de calefacción.</p>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>¿Cómo calcula EcoWatt el consumo mensual?</summary>
+                    <p>Usamos la fórmula estándar: <strong>Consumo (kWh) = Potencia (W) × Horas/día × 30 ÷ 1.000</strong>. El resultado es una estimación basada en el uso que tú declares.</p>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>¿De dónde salen las tarifas que usa la plataforma?</summary>
+                    <p>De los cuadros tarifarios públicos de distribuidoras como Enel Distribución y de valores promedio publicados por la CNE. Puedes elegir tu zona en la calculadora para ajustar el costo estimado.</p>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>¿Qué diferencia hay entre watts y kilowatts-hora?</summary>
+                    <p>El <strong>watt</strong> mide potencia: cuánta energía gasta el equipo en un momento dado. El <strong>kWh</strong> mide energía acumulada en el tiempo y es la unidad de facturación. Un horno de 2.000 W encendido media hora gasta 1 kWh.</p>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>¿EcoWatt guarda mis datos en algún servidor?</summary>
+                    <p>No. Todo se procesa y guarda <strong>localmente en tu navegador</strong>. Tus datos nunca salen de tu computador.</p>
+                </details>
+
+                <details class="faq-item reveal">
+                    <summary>¿La estimación de CO₂ es exacta?</summary>
+                    <p>Es una aproximación educativa basada en el factor de emisión promedio de la matriz eléctrica chilena (~0,4 kg CO₂/kWh). El valor real varía según la hora y la mezcla de generación del momento.</p>
+                </details>
+
+            </div>
+        </section>
+
+        <!-- ============ FUENTES OFICIALES ============ -->
+        <section id="fuentes" class="seccion con-imagen" data-bg="fuentes">
+            <div class="container">
+
+                <header class="seccion-cabecera reveal">
+                    <p class="eyebrow">Fuentes oficiales</p>
+                    <h2>Datos respaldados por instituciones</h2>
+                    <p class="seccion-descripcion">
+                        Las tarifas, estadísticas y referencias normativas de EcoWatt provienen
+                        de las siguientes fuentes públicas.
+                    </p>
+                </header>
+
+                <ul class="fuentes-lista reveal">
+
+                    <li>
+                        <div>
+                            <h3>CNE — Comisión Nacional de Energía</h3>
+                            <p>Estadísticas, tarifas y datos del sector eléctrico nacional.</p>
+                        </div>
+                        <a href="https://www.cne.cl" target="_blank" rel="noopener">www.cne.cl<span aria-hidden="true"> ↗</span></a>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h3>Ministerio de Energía</h3>
+                            <p>Informes de usos de la energía en los hogares chilenos y políticas públicas.</p>
+                        </div>
+                        <a href="https://www.energia.gob.cl" target="_blank" rel="noopener">www.energia.gob.cl<span aria-hidden="true"> ↗</span></a>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h3>SEC — Superintendencia de Electricidad y Combustibles</h3>
+                            <p>Regulación y etiquetado de eficiencia energética de equipos.</p>
+                        </div>
+                        <a href="https://www.sec.cl" target="_blank" rel="noopener">www.sec.cl<span aria-hidden="true"> ↗</span></a>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h3>Enel Distribución</h3>
+                            <p>Cuadros tarifarios vigentes y consejos de consumo eficiente.</p>
+                        </div>
+                        <a href="https://eneldistribucion.cl" target="_blank" rel="noopener">eneldistribucion.cl<span aria-hidden="true"> ↗</span></a>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h3>A3E — Agencia Chilena de Eficiencia Energética</h3>
+                            <p>Guías y herramientas de ahorro para hogares y empresas.</p>
+                        </div>
+                        <a href="https://a3e.cl" target="_blank" rel="noopener">a3e.cl<span aria-hidden="true"> ↗</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ CONTACTO ============ -->
+        <section id="contacto" class="seccion contacto">
+            <div class="container contacto-grid">
+
+                <div class="contacto-info reveal">
+                    <p class="eyebrow eyebrow-verde">Contacto</p>
+                    <h2>Conversemos sobre tu consumo</h2>
+                    <p>
+                        ¿Tienes dudas, sugerencias o quieres implementar EcoWatt en tu colegio
+                        o negocio? Escríbenos y te responderemos a la brevedad.
+                    </p>
+
+                    <ul class="contacto-datos">
+                        <li>
+                            <span class="dato-titulo">Correo</span>
+                            <span>contacto@ecowatt.cl</span>
+                        </li>
+                        <li>
+                            <span class="dato-titulo">Ubicación</span>
+                            <span>Valparaíso, Chile</span>
+                        </li>
+                        <li>
+                            <span class="dato-titulo">Horario</span>
+                            <span>Lunes a viernes · 9:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <form id="formContacto" class="form-contacto reveal delay-1" novalidate>
+                    <div class="campo">
+                        <label for="contactoNombre">Nombre</label>
+                        <input type="text" id="contactoNombre" placeholder="Tu nombre" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="contactoEmail">Correo electrónico</label>
+                        <input type="email" id="contactoEmail" placeholder="tucorreo@ejemplo.cl" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="contactoMensaje">Mensaje</label>
+                        <textarea id="contactoMensaje" rows="4" placeholder="Cuéntanos en qué podemos ayudarte" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+
+                    <p id="mensajeFormulario" class="mensaje-exito" hidden>
+                        Gracias por escribirnos. Te responderemos pronto.
+                    </p>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ PIE DE PÁGINA ============ -->
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <div class="footer-marca">
+                <a href="#inicio" class="brand brand-footer">
+                    <img src="logo.png" alt="">
+                    <span>Eco<em>Watt</em></span>
+                </a>
+                <p>
+                    Plataforma educativa para conocer, monitorear y optimizar el consumo
+                    eléctrico de hogares y pequeños negocios en Chile.
+                </p>
+            </div>
+
+            <nav class="footer-col" aria-label="Secciones">
+                <h3>Secciones</h3>
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#consejos">Consejos</a></li>
+                    <li><a href="#faq">Preguntas frecuentes</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-col" aria-label="Recursos">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="calculadora.html">Calculadora de consumo</a></li>
+                    <li><a href="#etiqueta">Etiqueta de eficiencia</a></li>
+                    <li><a href="#glosario">Glosario técnico</a></li>
+                    <li><a href="#fuentes">Fuentes oficiales</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="#contacto">contacto@ecowatt.cl</a></li>
+                    <li>Valparaíso, Chile</li>
+                </ul>
+            </div>
 
         </div>
 
-    </div>
+        <div class="footer-base">
+            <div class="container footer-base-inner">
+                <p>EcoWatt © 2026 · Proyecto desarrollado por estudiantes del Instituto Superior de Comercio de Valparaíso.</p>
+                <p>Datos: CNE · Ministerio de Energía · SEC</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>

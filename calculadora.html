@@ -2,112 +2,301 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>EcoWatt | Calculadora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWatt | Calculadora de consumo eléctrico</title>
+    <meta name="description" content="Calculadora de consumo eléctrico EcoWatt: estima kWh, costos en CLP y emisiones de CO₂ de tu hogar con tarifas oficiales de Chile.">
+    <meta name="theme-color" content="#0a2540">
+
+    <script>document.documentElement.dataset.theme = localStorage.getItem("ecowatt_theme") || "light";</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body data-pagina="calculadora">
 
-<header>
-    <div class="logo-container">
-        <img src="logo.png" alt="EcoWatt">
-        <div>
-            <h1>EcoWatt</h1>
-            <p>Controla y optimiza tu consumo energético</p>
+    <!-- ============ BARRA DE NAVEGACIÓN ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-inner">
+
+            <a href="index.html" class="brand">
+                <img src="logo.png" alt="">
+                <span>Eco<em>Watt</em></span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#consejos">Consejos</a></li>
+                    <li><a href="index.html#glosario">Glosario</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <a href="calculadora.html" class="btn btn-primary btn-nav" aria-current="page">Calculadora</a>
+            </div>
+
+            <button class="btn-tema" id="btnTema" aria-label="Cambiar tema claro u oscuro"></button>
+
         </div>
-    </div>
-</header>
+    </nav>
 
-<section class="hero">
-    <h2>Calculadora de Consumo Energético</h2>
-
-    <p>
-        Ingresa tus electrodomésticos para conocer su consumo mensual
-        estimado y recibir recomendaciones para mejorar la eficiencia
-        energética de tu hogar.
-    </p>
-</section>
-
-<section class="formulario">
-
-    <h2>Agregar Electrodoméstico</h2>
-
-    <label>Electrodoméstico</label>
-    <input type="text" id="nombre" placeholder="Ej: Refrigerador">
-
-    <label>Potencia (Watts)</label>
-    <input type="number" id="potencia">
-
-    <label>Horas de uso al día</label>
-    <input type="number" id="horas">
-
-    <button onclick="agregarElectrodomestico()">
-        Agregar
-    </button>
-
-</section>
-
-<section class="tabla-container">
-
-    <h2>Consumo Registrado</h2>
-
-    <table>
-
-        <thead>
-            <tr>
-                <th>Electrodoméstico</th>
-                <th>Consumo Mensual (kWh)</th>
-            </tr>
-        </thead>
-
-        <tbody id="tablaDatos"></tbody>
-
-    </table>
-
-</section>
-
-<section class="grafico">
-
-    <h2>Análisis de Consumo</h2>
-
-    <canvas id="graficoConsumo"></canvas>
-
-    <h3 id="total"></h3>
-
-</section>
-
-<section class="recomendaciones">
-
-    <h2>Recomendaciones Inteligentes</h2>
-
-    <div id="recomendacion">
-        Agrega electrodomésticos para obtener sugerencias.
-    </div>
-
-    <div class="ia-box" id="iaBox">
-        <div class="ia-header">
-            <span class="ia-icon">🤖</span>
-            <span>Agente IA EcoWatt</span>
-            <span class="ia-tag">Basado en datos CNE / Min. Energía Chile</span>
+    <!-- ============ ENCABEZADO DE PÁGINA ============ -->
+    <header class="page-header">
+        <div class="container page-header-inner">
+            <p class="eyebrow reveal">Plataforma EcoWatt</p>
+            <h1 class="reveal delay-1">Calculadora de consumo eléctrico</h1>
+            <p class="reveal delay-2">
+                Registra tus electrodomésticos para conocer su consumo mensual estimado,
+                su costo en pesos chilenos según tu zona y las emisiones asociadas.
+                Toda la información se procesa localmente en tu navegador.
+            </p>
         </div>
-        <div id="iaTexto" class="ia-texto">
-            El agente analizará tu consumo apenas agregues un electrodoméstico,
-            comparándolo con datos reales de hogares chilenos.
+    </header>
+
+    <!-- ============ ZONA DE TRABAJO ============ -->
+    <main class="zona-trabajo">
+        <div class="container">
+
+            <div class="trabajo-grid">
+
+                <!-- Formulario -->
+                <section class="panel formulario" aria-label="Agregar electrodoméstico">
+
+                    <h2>Agregar electrodoméstico</h2>
+
+                    <label for="nombre">Electrodoméstico</label>
+                    <input type="text" id="nombre" list="catalogoEquipos" placeholder="Ej.: Refrigerador" autocomplete="off">
+                    <datalist id="catalogoEquipos">
+                        <option value="Refrigerador"></option>
+                        <option value="Freezer"></option>
+                        <option value="Lavadora"></option>
+                        <option value="Secadora"></option>
+                        <option value="Lavavajillas"></option>
+                        <option value="Horno eléctrico"></option>
+                        <option value="Microondas"></option>
+                        <option value="Hervidor eléctrico"></option>
+                        <option value="Cafetera"></option>
+                        <option value="Plancha"></option>
+                        <option value="Aspiradora"></option>
+                        <option value="Televisor LED"></option>
+                        <option value="Computador de escritorio"></option>
+                        <option value="Notebook"></option>
+                        <option value="Router WiFi"></option>
+                        <option value="Aire acondicionado"></option>
+                        <option value="Calefactor eléctrico"></option>
+                        <option value="Panel radiante"></option>
+                        <option value="Estufa eléctrica"></option>
+                        <option value="Termo eléctrico"></option>
+                        <option value="Ventilador"></option>
+                        <option value="Bombilla LED"></option>
+                        <option value="Iluminación LED (casa)"></option>
+                        <option value="Cargador de celular"></option>
+                    </datalist>
+
+                    <p class="hint" id="hintPotencia">Escribe el nombre del equipo y completaremos su potencia típica automáticamente.</p>
+
+                    <label for="potencia">Potencia (Watts)</label>
+                    <input type="number" id="potencia" min="1" step="1" placeholder="Ej.: 150">
+
+                    <label for="horas">Horas de uso al día</label>
+                    <input type="number" id="horas" min="0.5" max="24" step="0.5" placeholder="Ej.: 8">
+
+                    <label for="selectorTarifa">Tarifa eléctrica de tu zona (CLP/kWh)</label>
+                    <select id="selectorTarifa">
+                        <option value="195" selected>Promedio nacional — $195</option>
+                        <option value="180">Zona Centro / Región Metropolitana — $180</option>
+                        <option value="190">Valparaíso — $190</option>
+                        <option value="205">Norte (Antofagasta, Tarapacá) — $205</option>
+                        <option value="215">Sur (Biobío, Araucanía, Los Lagos) — $215</option>
+                        <option value="236">Zonas extremas (Aysén, Magallanes) — $236</option>
+                    </select>
+
+                    <button onclick="agregarElectrodomestico()">Agregar equipo</button>
+
+                </section>
+
+                <!-- Tabla de resultados -->
+                <section class="panel panel-secundario wm wm-datos" aria-label="Consumo registrado">
+
+                    <h2>Consumo registrado</h2>
+
+                    <div class="tabla-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Electrodoméstico</th>
+                                    <th>Potencia (W)</th>
+                                    <th>Horas/día</th>
+                                    <th>kWh/mes</th>
+                                    <th>Costo ($CLP/mes)</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaDatos">
+                                <tr class="fila-vacia">
+                                    <td colspan="6">Aún no has agregado electrodomésticos.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="totales">
+                        <h3 id="total">Consumo total: <span>0 kWh</span></h3>
+                        <h3 id="costoTotal">Costo estimado: <span>$0 CLP</span></h3>
+                    </div>
+
+                    <button class="btn-texto" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+                </section>
+
+            </div>
+
+            <!-- Gráficos -->
+            <div class="graficos-grid">
+
+                <section class="panel grafico" aria-label="Análisis de consumo">
+                    <h2>Análisis de consumo</h2>
+                    <canvas id="graficoConsumo"></canvas>
+                </section>
+
+                <section class="panel grafico" aria-label="Distribución por electrodoméstico">
+                    <h2>Distribución por equipo</h2>
+                    <canvas id="graficoTorta"></canvas>
+                </section>
+
+            </div>
+
         </div>
-    </div>
+    </main>
 
-</section>
+    <!-- ============ BENCHMARK NACIONAL + CO2 ============ -->
+    <section id="comparador" class="seccion con-imagen" data-bg="verde">
+        <div class="container">
 
-<footer>
-    <p>
-        EcoWatt © 2026 | Proyecto desarrollado por estudiantes del
-        Instituto Superior de Comercio de Valparaíso.
-    </p>
-</footer>
+            <header class="seccion-cabecera">
+                <p class="eyebrow">Benchmark nacional</p>
+                <h2>¿Cómo te comparas con Chile?</h2>
+            </header>
 
-<script src="script.js"></script>
+            <div class="panel panel-secundario">
+
+                <div class="comparador">
+                    <div class="comparador-barra">
+                        <div class="comparador-fill" id="comparadorFill"></div>
+                        <div class="marca-promedio" title="Promedio casa familiar chilena (265 kWh/mes)"></div>
+                    </div>
+                    <div class="comparador-labels">
+                        <span id="tuConsumoLabel">Tu hogar: 0 kWh</span>
+                        <span>Promedio casa familiar: 265 kWh/mes</span>
+                    </div>
+                </div>
+
+                <div class="co2-box">
+                    <span class="co2-titulo">Huella de carbono estimada</span>
+                    <p id="co2Info">
+                        Agrega electrodomésticos para calcular tus emisiones mensuales de CO₂.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ RECOMENDACIONES + AGENTE IA ============ -->
+    <section class="seccion con-imagen" data-bg="consejos">
+        <div class="container container-angosto">
+
+            <div class="panel panel-secundario wm wm-consejos">
+
+                <h2>Recomendaciones inteligentes</h2>
+
+                <div id="recomendacion">
+                    Agrega electrodomésticos para obtener sugerencias.
+                </div>
+
+                <div class="ia-box" id="iaBox">
+                    <div class="ia-header">
+                        <span>Agente IA EcoWatt</span>
+                        <span class="ia-tag">Basado en datos CNE · Min. Energía</span>
+                    </div>
+                    <div id="iaTexto" class="ia-texto">
+                        El agente analizará tu consumo apenas agregues un electrodoméstico,
+                        comparándolo con datos reales de hogares chilenos.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ PIE DE PÁGINA ============ -->
+    <footer class="footer">
+        <div class="container footer-grid">
+
+            <div class="footer-marca">
+                <a href="index.html" class="brand brand-footer">
+                    <img src="logo.png" alt="">
+                    <span>Eco<em>Watt</em></span>
+                </a>
+                <p>
+                    Plataforma educativa para conocer, monitorear y optimizar el consumo
+                    eléctrico de hogares y pequeños negocios en Chile.
+                </p>
+            </div>
+
+            <nav class="footer-col" aria-label="Secciones">
+                <h3>Secciones</h3>
+                <ul>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#equipo">Equipo</a></li>
+                    <li><a href="index.html#consejos">Consejos</a></li>
+                    <li><a href="index.html#faq">Preguntas frecuentes</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-col" aria-label="Recursos">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="calculadora.html">Calculadora de consumo</a></li>
+                    <li><a href="index.html#etiqueta">Etiqueta de eficiencia</a></li>
+                    <li><a href="index.html#glosario">Glosario técnico</a></li>
+                    <li><a href="index.html#fuentes">Fuentes oficiales</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="index.html#contacto">contacto@ecowatt.cl</a></li>
+                    <li>Valparaíso, Chile</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-base">
+            <div class="container footer-base-inner">
+                <p>EcoWatt © 2026 · Proyecto desarrollado por estudiantes del Instituto Superior de Comercio de Valparaíso.</p>
+                <p>Datos: CNE · Ministerio de Energía · SEC</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
